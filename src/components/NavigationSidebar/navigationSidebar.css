@@ -1,0 +1,24 @@
+.channel-thumbnail {
+  object-fit: cover;
+}
+
+.channel-thumbnail:hover {
+  cursor: pointer;
+  animation-name: border-radius-animation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.channel-thumbnail:hover .active {
+ 
+}
+
+@keyframes border-radius-animation {
+  from {
+    border-radius: 50%;
+  }
+  to {
+    border-radius: 15px;
+  }
+}
+

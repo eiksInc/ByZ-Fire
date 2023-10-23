@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { Avatar, Box, Flex, Grid, HStack, theme } from '@chakra-ui/react'
 import './App.css'
+import { AppScrollArea } from './components/scrollArea/AppScrollArea'
+import NavigationSidebar from './components/NavigationSidebar/NavigationSidebar'
+import channelsMock from './data/mocks/channelsMock'
+import ChatContainer from './components/chat/chat-container'
+import { ChannelContext } from './contexts/channel/channel-context'
+import React from 'react'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [context, dispatch] = React.useContext(ChannelContext)
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Flex
+      h="100vh"
+      minWidth={"100vw"}
+      w="100vw"
+      background={theme.colors.gray[800]}
+      color={theme.colors.white}
+    >
+      <HStack
+        alignItems={"start"}
+        minWidth={"100%"}
+        gap={0}
+        spacing={0}
+      >
+        <NavigationSidebar channels={channelsMock} />
+        <ChatContainer />
+      </HStack>
+    </Flex>
   )
 }
 
